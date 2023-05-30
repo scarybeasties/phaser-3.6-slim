@@ -1,0 +1,11 @@
+name: Package for Github
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  package-github:
+    uses: scarybeasties/workflows/.github/workflows/package.npm.github.yml@main
+    secrets: inherit
