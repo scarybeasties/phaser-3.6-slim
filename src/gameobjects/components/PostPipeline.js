@@ -165,39 +165,39 @@ var PostPipeline = {
      */
     setPostPipeline: function (pipelines, pipelineData, copyData)
     {
-        var renderer = this.scene.sys.renderer;
+        // var renderer = this.scene.sys.renderer;
 
-        if (!renderer)
-        {
-            return this;
-        }
+        // if (!renderer)
+        // {
+        //     return this;
+        // }
 
-        var pipelineManager = renderer.pipelines;
+        // var pipelineManager = renderer.pipelines;
 
-        if (pipelineManager)
-        {
-            if (!Array.isArray(pipelines))
-            {
-                pipelines = [ pipelines ];
-            }
+        // if (pipelineManager)
+        // {
+        //     if (!Array.isArray(pipelines))
+        //     {
+        //         pipelines = [ pipelines ];
+        //     }
 
-            for (var i = 0; i < pipelines.length; i++)
-            {
-                var instance = pipelineManager.getPostPipeline(pipelines[i], this, pipelineData);
+        //     for (var i = 0; i < pipelines.length; i++)
+        //     {
+        //         var instance = pipelineManager.getPostPipeline(pipelines[i], this, pipelineData);
 
-                if (instance)
-                {
-                    this.postPipelines.push(instance);
-                }
-            }
+        //         if (instance)
+        //         {
+        //             this.postPipelines.push(instance);
+        //         }
+        //     }
 
-            if (pipelineData)
-            {
-                this.postPipelineData = (copyData) ? DeepCopy(pipelineData) : pipelineData;
-            }
-        }
+        //     if (pipelineData)
+        //     {
+        //         this.postPipelineData = (copyData) ? DeepCopy(pipelineData) : pipelineData;
+        //     }
+        // }
 
-        this.hasPostPipeline = (this.postPipelines.length > 0);
+        // this.hasPostPipeline = (this.postPipelines.length > 0);
 
         return this;
     },

@@ -116,7 +116,7 @@ module.exports = {
         //  https://www.khronos.org/opengl/wiki/Common_Mistakes#Texture_Unit
 
         //  Hard-clamp this to 16 to avoid run-away texture counts such as on Android
-        var gpuMax = Math.min(16, gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS));
+        var gpuMax = Math.min(1, gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS));
 
         if (!maxTextures || maxTextures === -1)
         {

@@ -236,10 +236,10 @@ var PreFXPipeline = new Class({
         this.colorMatrixShader = shaders[3];
 
         //  Our full-screen target (exclusive to this pipeline)
-        this.fsTarget = new RenderTarget(renderer, renderer.width, renderer.height, 1, 0, true, true);
+        // this.fsTarget = new RenderTarget(renderer, renderer.width, renderer.height, 1, 0, true, true);
 
         //  Copy by reference the RTs in the PipelineManager, plus add our fsTarget
-        this.renderTargets = this.manager.renderTargets.concat(this.fsTarget);
+        this.renderTargets = this.manager.renderTargets;//.concat(this.fsTarget);
 
         // 6 verts * 28 bytes
         var data = new ArrayBuffer(168);

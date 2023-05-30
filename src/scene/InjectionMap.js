@@ -41,9 +41,9 @@ var InjectionMap = {
     time: 'time',
     tweens: 'tweens',
 
-    arcadePhysics: 'physics',
-    impactPhysics: 'impact',
-    matterPhysics: 'matter'
+    // arcadePhysics: 'physics',
+    // impactPhysics: 'impact',
+    // matterPhysics: 'matter'
 
 };
 

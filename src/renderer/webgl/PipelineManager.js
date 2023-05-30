@@ -91,13 +91,13 @@ var PipelineManager = new Class({
         this.classes = new CustomMap([
             [ CONST.UTILITY_PIPELINE, UtilityPipeline ],
             [ CONST.MULTI_PIPELINE, MultiPipeline ],
-            [ CONST.BITMAPMASK_PIPELINE, BitmapMaskPipeline ],
+            // [ CONST.BITMAPMASK_PIPELINE, BitmapMaskPipeline ],
             [ CONST.SINGLE_PIPELINE, SinglePipeline ],
-            [ CONST.ROPE_PIPELINE, RopePipeline ],
-            [ CONST.LIGHT_PIPELINE, LightPipeline ],
-            [ CONST.POINTLIGHT_PIPELINE, PointLightPipeline ],
+            // [ CONST.ROPE_PIPELINE, RopePipeline ],
+            // [ CONST.LIGHT_PIPELINE, LightPipeline ],
+            // [ CONST.POINTLIGHT_PIPELINE, PointLightPipeline ],
             [ CONST.MOBILE_PIPELINE, MobilePipeline ],
-            [ CONST.FX_PIPELINE, FXPipeline ]
+            // [ CONST.FX_PIPELINE, FXPipeline ]
         ]);
 
         /**
@@ -128,20 +128,20 @@ var PipelineManager = new Class({
          * @since 3.50.0
          */
         this.postPipelineClasses = new CustomMap([
-            [ String(FX_CONST.BARREL), FX.Barrel ],
-            [ String(FX_CONST.BLOOM), FX.Bloom ],
-            [ String(FX_CONST.BLUR), FX.Blur ],
-            [ String(FX_CONST.BOKEH), FX.Bokeh ],
-            [ String(FX_CONST.CIRCLE), FX.Circle ],
-            [ String(FX_CONST.COLOR_MATRIX), FX.ColorMatrix ],
-            [ String(FX_CONST.DISPLACEMENT), FX.Displacement ],
-            [ String(FX_CONST.GLOW), FX.Glow ],
-            [ String(FX_CONST.GRADIENT), FX.Gradient ],
-            [ String(FX_CONST.PIXELATE), FX.Pixelate ],
-            [ String(FX_CONST.SHADOW), FX.Shadow ],
-            [ String(FX_CONST.SHINE), FX.Shine ],
-            [ String(FX_CONST.VIGNETTE), FX.Vignette ],
-            [ String(FX_CONST.WIPE), FX.Wipe ]
+            // [ String(FX_CONST.BARREL), FX.Barrel ],
+            // [ String(FX_CONST.BLOOM), FX.Bloom ],
+            // [ String(FX_CONST.BLUR), FX.Blur ],
+            // [ String(FX_CONST.BOKEH), FX.Bokeh ],
+            // [ String(FX_CONST.CIRCLE), FX.Circle ],
+            // [ String(FX_CONST.COLOR_MATRIX), FX.ColorMatrix ],
+            // [ String(FX_CONST.DISPLACEMENT), FX.Displacement ],
+            // [ String(FX_CONST.GLOW), FX.Glow ],
+            // [ String(FX_CONST.GRADIENT), FX.Gradient ],
+            // [ String(FX_CONST.PIXELATE), FX.Pixelate ],
+            // [ String(FX_CONST.SHADOW), FX.Shadow ],
+            // [ String(FX_CONST.SHINE), FX.Shine ],
+            // [ String(FX_CONST.VIGNETTE), FX.Vignette ],
+            // [ String(FX_CONST.WIPE), FX.Wipe ]
         ]);
 
         /**
@@ -372,36 +372,36 @@ var PipelineManager = new Class({
     {
         //  Create the default RenderTextures
         var renderer = this.renderer;
-        var targets = this.renderTargets;
+        // var targets = this.renderTargets;
 
-        this.frameInc = Math.floor(GetFastValue(pipelineConfig, 'frameInc', 32));
+        // this.frameInc = Math.floor(GetFastValue(pipelineConfig, 'frameInc', 32));
 
-        var renderWidth = renderer.width;
-        var renderHeight = renderer.height;
+        // var renderWidth = renderer.width;
+        // var renderHeight = renderer.height;
 
-        var minDimension = Math.min(renderWidth, renderHeight);
+        // var minDimension = Math.min(renderWidth, renderHeight);
 
-        var qty = Math.ceil(minDimension / this.frameInc);
+        // var qty = Math.ceil(minDimension / this.frameInc);
 
-        for (var i = 1; i < qty; i++)
-        {
-            var targetWidth = i * this.frameInc;
+        // for (var i = 1; i < qty; i++)
+        // {
+        //     var targetWidth = i * this.frameInc;
 
-            targets.push(new RenderTarget(renderer, targetWidth, targetWidth));
+        //     targets.push(new RenderTarget(renderer, targetWidth, targetWidth));
 
-            //  Duplicate RT for swap frame
-            targets.push(new RenderTarget(renderer, targetWidth, targetWidth));
+        //     //  Duplicate RT for swap frame
+        //     targets.push(new RenderTarget(renderer, targetWidth, targetWidth));
 
-            //  Duplicate RT for alt swap frame
-            targets.push(new RenderTarget(renderer, targetWidth, targetWidth));
+        //     //  Duplicate RT for alt swap frame
+        //     targets.push(new RenderTarget(renderer, targetWidth, targetWidth));
 
-            this.maxDimension = targetWidth;
-        }
+        //     this.maxDimension = targetWidth;
+        // }
 
-        //  Full-screen RTs
-        targets.push(new RenderTarget(renderer, renderWidth, renderHeight, 1, 0, true, true));
-        targets.push(new RenderTarget(renderer, renderWidth, renderHeight, 1, 0, true, true));
-        targets.push(new RenderTarget(renderer, renderWidth, renderHeight, 1, 0, true, true));
+        // //  Full-screen RTs
+        // targets.push(new RenderTarget(renderer, renderWidth, renderHeight, 1, 0, true, true));
+        // targets.push(new RenderTarget(renderer, renderWidth, renderHeight, 1, 0, true, true));
+        // targets.push(new RenderTarget(renderer, renderWidth, renderHeight, 1, 0, true, true));
 
         //  Install each of the default pipelines
 
@@ -429,9 +429,9 @@ var PipelineManager = new Class({
 
         //  Our const-like references
         this.MULTI_PIPELINE = this.get(CONST.MULTI_PIPELINE);
-        this.BITMAPMASK_PIPELINE = this.get(CONST.BITMAPMASK_PIPELINE);
+        // this.BITMAPMASK_PIPELINE = this.get(CONST.BITMAPMASK_PIPELINE);
         this.MOBILE_PIPELINE = this.get(CONST.MOBILE_PIPELINE);
-        this.FX_PIPELINE = this.get(CONST.FX_PIPELINE);
+        // this.FX_PIPELINE = this.get(CONST.FX_PIPELINE);
 
         //  And now the ones in the config, if any
 
@@ -445,11 +445,12 @@ var PipelineManager = new Class({
 
                 instance.name = pipelineName;
 
-                if (instance.isPostFX)
-                {
-                    this.postPipelineClasses.set(pipelineName, pipelineClass);
-                }
-                else if (!this.has(pipelineName))
+                // if (instance.isPostFX)
+                // {
+                //     this.postPipelineClasses.set(pipelineName, pipelineClass);
+                // }
+                // else 
+                if (!this.has(pipelineName))
                 {
                     this.classes.set(pipelineName, pipelineClass);
 
@@ -461,10 +462,10 @@ var PipelineManager = new Class({
         //  Finally, set the Default Game Object pipeline
         this.default = this.get(defaultPipeline);
 
-        if (autoMobilePipeline && !Device.os.desktop)
-        {
-            this.default = this.MOBILE_PIPELINE;
-        }
+        // if (autoMobilePipeline && !Device.os.desktop)
+        // {
+        //     this.default = this.MOBILE_PIPELINE;
+        // }
     },
 
     /**
@@ -593,10 +594,10 @@ var PipelineManager = new Class({
      */
     addPostPipeline: function (name, pipeline)
     {
-        if (!this.postPipelineClasses.has(name))
-        {
-            this.postPipelineClasses.set(name, pipeline);
-        }
+        // if (!this.postPipelineClasses.has(name))
+        // {
+        //     this.postPipelineClasses.set(name, pipeline);
+        // }
     },
 
     /**

@@ -754,7 +754,7 @@ var WebGLRenderer = new Class({
 
         if (!config.maxTextures || config.maxTextures === -1)
         {
-            config.maxTextures = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS);
+            config.maxTextures = 2;//gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS);
         }
 
         if (!config.maxTextureSize)
@@ -778,7 +778,7 @@ var WebGLRenderer = new Class({
         gl.disable(gl.DEPTH_TEST);
         gl.disable(gl.CULL_FACE);
 
-        gl.enable(gl.BLEND);
+        // gl.enable(gl.BLEND);
 
         gl.clearColor(clearColor.redGL, clearColor.greenGL, clearColor.blueGL, clearColor.alphaGL);
 
@@ -840,10 +840,10 @@ var WebGLRenderer = new Class({
 
         this.isBooted = true;
 
-        this.renderTarget = new RenderTarget(this, width, height, 1, 0, true, true);
+        // this.renderTarget = new RenderTarget(this, width, height, 1, 0, true, true);
 
-        this.maskTarget = new RenderTarget(this, width, height, 1, 0, true, true);
-        this.maskSource = new RenderTarget(this, width, height, 1, 0, true, true);
+        // this.maskTarget = new RenderTarget(this, width, height, 1, 0, true, true);
+        // this.maskSource = new RenderTarget(this, width, height, 1, 0, true, true);
 
         //  Set-up pipelines
         var config = game.config;
@@ -859,9 +859,9 @@ var WebGLRenderer = new Class({
 
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 
-        gl.enable(gl.SCISSOR_TEST);
+        // gl.enable(gl.SCISSOR_TEST);
 
-        game.scale.on(ScaleEvents.RESIZE, this.onResize, this);
+        // game.scale.on(ScaleEvents.RESIZE, this.onResize, this);
 
         this.resize(width, height);
     },
@@ -2003,7 +2003,7 @@ var WebGLRenderer = new Class({
 
         if (generateMipmap)
         {
-            gl.generateMipmap(gl.TEXTURE_2D);
+            // gl.generateMipmap(gl.TEXTURE_2D);
         }
 
         if (currentTexture)

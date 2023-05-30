@@ -486,34 +486,34 @@ var WebGLPipeline = new Class({
         var width = renderer.width;
         var height = renderer.height;
 
-        if (typeof(targets) === 'number')
-        {
-            //  Create this many default RTs
-            for (i = 0; i < targets; i++)
-            {
-                renderTargets.push(new RenderTarget(renderer, width, height, 1, 0, true));
-            }
-        }
-        else if (Array.isArray(targets))
-        {
-            for (i = 0; i < targets.length; i++)
-            {
-                var scale = GetFastValue(targets[i], 'scale', 1);
-                var minFilter = GetFastValue(targets[i], 'minFilter', 0);
-                var autoClear = GetFastValue(targets[i], 'autoClear', 1);
-                var targetWidth = GetFastValue(targets[i], 'width', null);
-                var targetHeight = GetFastValue(targets[i], 'height', targetWidth);
+        // if (typeof(targets) === 'number')
+        // {
+        //     //  Create this many default RTs
+        //     for (i = 0; i < targets; i++)
+        //     {
+        //         renderTargets.push(new RenderTarget(renderer, width, height, 1, 0, true));
+        //     }
+        // }
+        // else if (Array.isArray(targets))
+        // {
+        //     for (i = 0; i < targets.length; i++)
+        //     {
+        //         var scale = GetFastValue(targets[i], 'scale', 1);
+        //         var minFilter = GetFastValue(targets[i], 'minFilter', 0);
+        //         var autoClear = GetFastValue(targets[i], 'autoClear', 1);
+        //         var targetWidth = GetFastValue(targets[i], 'width', null);
+        //         var targetHeight = GetFastValue(targets[i], 'height', targetWidth);
 
-                if (targetWidth)
-                {
-                    renderTargets.push(new RenderTarget(renderer, targetWidth, targetHeight, 1, minFilter, autoClear));
-                }
-                else
-                {
-                    renderTargets.push(new RenderTarget(renderer, width, height, scale, minFilter, autoClear));
-                }
-            }
-        }
+        //         if (targetWidth)
+        //         {
+        //             renderTargets.push(new RenderTarget(renderer, targetWidth, targetHeight, 1, minFilter, autoClear));
+        //         }
+        //         else
+        //         {
+        //             renderTargets.push(new RenderTarget(renderer, width, height, scale, minFilter, autoClear));
+        //         }
+        //     }
+        // }
 
         if (renderTargets.length)
         {
